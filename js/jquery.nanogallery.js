@@ -4525,7 +4525,7 @@ nanoGALLERY v5.10.3 release notes.
       // first loop to retrieve the width of the area
       $thumbnails.each(function() {
         var $this=jQuery(this),
-        n=$this.data("index");
+        n=$this.data("/");
 
         if( n !== undefined ) {
           var curPosX=0,
@@ -4556,7 +4556,7 @@ nanoGALLERY v5.10.3 release notes.
       // second loop to position the thumbnails
       $thumbnails.each(function() {
         var $this=jQuery(this),
-        n=$this.data("index");
+        n=$this.data("/");
 
         if( n !== undefined ) {
           if( G.O.thumbnailLabel.get('position') == 'onBottom' ) {
@@ -4634,7 +4634,7 @@ nanoGALLERY v5.10.3 release notes.
 
       var $thumbnails=G.$E.conTn.find('.nanoGalleryThumbnailContainer');
       $thumbnails.each(function() {
-        var n=jQuery(this).data("index");
+        var n=jQuery(this).data("/");
         if( n !== undefined && G.I[n] != undefined ) {
           if( G.I[n].thumbImg().width > 0 && G.I[n].thumbImg().height > 0 ) {
             var item=G.I[n],
@@ -4717,7 +4717,7 @@ nanoGALLERY v5.10.3 release notes.
       $thumbnails.each(function() {
 
       var $this=jQuery(this),
-        n=$this.data("index");
+        n=$this.data("/");
         if( n !== undefined && G.I[n] != undefined ) {
           if( G.I[n].thumbImg().width > 0 && G.I[n].thumbImg().height > 0 ) {
             var item=G.I[n],
@@ -4873,7 +4873,7 @@ nanoGALLERY v5.10.3 release notes.
         $thumbnails.each(function() {
           var $this=jQuery(this);
 
-          var n=$this.data("index");
+          var n=$this.data("/");
           if( n !== undefined ) {
             if( curPosY == 0 ) {
               curPosX=curCol*(G.tn.outerWidth.get()+gutterWidth);
@@ -4903,7 +4903,7 @@ nanoGALLERY v5.10.3 release notes.
       $thumbnails.each(function() {
         var $this=jQuery(this);
 
-        var n=$this.data("index");
+        var n=$this.data("/");
         if( n !== undefined ) {
           lastN=n;
           if( curPosY == 0 ) {
@@ -5802,7 +5802,7 @@ nanoGALLERY v5.10.3 release notes.
 
     // init hover effects
     function ThumbnailOverInit( $e ) {
-      var n=$e.data("index");
+      var n=$e.data("/");
       if( n == undefined ) { return; }    // required because can be fired on ghost elements
       var item=G.I[n];
       if( typeof G.O.fnThumbnailHoverInit == 'function' ) {
@@ -6360,7 +6360,7 @@ nanoGALLERY v5.10.3 release notes.
 
 
     function ThumbnailOverResize( $e ) {
-      var n=$e.data("index");
+      var n=$e.data("/");
       if( n == undefined ) { return; }    // required because can be fired on ghost elements
       var item=G.I[n];
       if( !item.hoverInitDone ) {
@@ -7152,7 +7152,7 @@ nanoGALLERY v5.10.3 release notes.
     function ThumbnailHoverOut( $e ) {
       if( G.containerViewerDisplayed ) { return; }
 
-      var n=$e.data("index");
+      var n=$e.data("/");
       if( n == undefined ) { return; }    // required because can be fired on ghost elements
 
       if( G.aengine == 'velocity' ) {
