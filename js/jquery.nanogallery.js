@@ -761,7 +761,7 @@ nanoGALLERY v5.10.3 release notes.
     };
 
     // ### Flickr
-    // Details: http://www.flickr.com/services/api/misc.urls
+    // Details: http://www.flickr.com/services/api/misc.urls.html
     G.flickr = {
       url: function() {
         // Flickr API Going SSL-Only on June 27th, 2014
@@ -4525,7 +4525,7 @@ nanoGALLERY v5.10.3 release notes.
       // first loop to retrieve the width of the area
       $thumbnails.each(function() {
         var $this=jQuery(this),
-        n=$this.data("/");
+        n=$this.data("index");
 
         if( n !== undefined ) {
           var curPosX=0,
@@ -4556,7 +4556,7 @@ nanoGALLERY v5.10.3 release notes.
       // second loop to position the thumbnails
       $thumbnails.each(function() {
         var $this=jQuery(this),
-        n=$this.data("/");
+        n=$this.data("index");
 
         if( n !== undefined ) {
           if( G.O.thumbnailLabel.get('position') == 'onBottom' ) {
@@ -4634,7 +4634,7 @@ nanoGALLERY v5.10.3 release notes.
 
       var $thumbnails=G.$E.conTn.find('.nanoGalleryThumbnailContainer');
       $thumbnails.each(function() {
-        var n=jQuery(this).data("/");
+        var n=jQuery(this).data("index");
         if( n !== undefined && G.I[n] != undefined ) {
           if( G.I[n].thumbImg().width > 0 && G.I[n].thumbImg().height > 0 ) {
             var item=G.I[n],
@@ -4717,7 +4717,7 @@ nanoGALLERY v5.10.3 release notes.
       $thumbnails.each(function() {
 
       var $this=jQuery(this),
-        n=$this.data("/");
+        n=$this.data("index");
         if( n !== undefined && G.I[n] != undefined ) {
           if( G.I[n].thumbImg().width > 0 && G.I[n].thumbImg().height > 0 ) {
             var item=G.I[n],
@@ -4873,7 +4873,7 @@ nanoGALLERY v5.10.3 release notes.
         $thumbnails.each(function() {
           var $this=jQuery(this);
 
-          var n=$this.data("/");
+          var n=$this.data("index");
           if( n !== undefined ) {
             if( curPosY == 0 ) {
               curPosX=curCol*(G.tn.outerWidth.get()+gutterWidth);
@@ -4903,7 +4903,7 @@ nanoGALLERY v5.10.3 release notes.
       $thumbnails.each(function() {
         var $this=jQuery(this);
 
-        var n=$this.data("/");
+        var n=$this.data("index");
         if( n !== undefined ) {
           lastN=n;
           if( curPosY == 0 ) {
@@ -5223,7 +5223,7 @@ nanoGALLERY v5.10.3 release notes.
           att.$e.css({'opacity': 0 });
           G.containerThumbnailsDisplayed=false;
           //      G.$E.conTn.off().empty();
-          G.$E.conTn.hide(0).off().show(0)('');
+          G.$E.conTn.hide(0).off().show(0).html('');
           var l=G.I.length;
           for( var i=0; i < l ; i++ ) {
 
@@ -5249,7 +5249,7 @@ nanoGALLERY v5.10.3 release notes.
         // remove gallery elements
         G.containerThumbnailsDisplayed=false;
         //      G.$E.conTn.off().empty();
-        G.$E.conTn.hide(0).off().show(0)('');
+        G.$E.conTn.hide(0).off().show(0).html('');
         var l=G.I.length;
         for( var i=0; i < l ; i++ ) {
           G.I[i].hovered=false;
@@ -5802,7 +5802,7 @@ nanoGALLERY v5.10.3 release notes.
 
     // init hover effects
     function ThumbnailOverInit( $e ) {
-      var n=$e.data("/");
+      var n=$e.data("index");
       if( n == undefined ) { return; }    // required because can be fired on ghost elements
       var item=G.I[n];
       if( typeof G.O.fnThumbnailHoverInit == 'function' ) {
@@ -6360,7 +6360,7 @@ nanoGALLERY v5.10.3 release notes.
 
 
     function ThumbnailOverResize( $e ) {
-      var n=$e.data("/");
+      var n=$e.data("index");
       if( n == undefined ) { return; }    // required because can be fired on ghost elements
       var item=G.I[n];
       if( !item.hoverInitDone ) {
@@ -7152,7 +7152,7 @@ nanoGALLERY v5.10.3 release notes.
     function ThumbnailHoverOut( $e ) {
       if( G.containerViewerDisplayed ) { return; }
 
-      var n=$e.data("/");
+      var n=$e.data("index");
       if( n == undefined ) { return; }    // required because can be fired on ghost elements
 
       if( G.aengine == 'velocity' ) {
@@ -8337,19 +8337,19 @@ nanoGALLERY v5.10.3 release notes.
       var setTxt=false;
       // set title
       if( G.I[imageIdx].title !== undefined && G.I[imageIdx].title != '' ) {
-        G.$E.conVwTb.find('.title')(G.I[imageIdx].title);
+        G.$E.conVwTb.find('.title').html(G.I[imageIdx].title);
         setTxt=true;
       }
       else {
-        G.$E.conVwTb.find('.title')('');
+        G.$E.conVwTb.find('.title').html('');
       }
       // set description
       if( G.I[imageIdx].description !== undefined && G.I[imageIdx].description != '' ) {
-        G.$E.conVwTb.find('.description')(G.I[imageIdx].description);
+        G.$E.conVwTb.find('.description').html(G.I[imageIdx].description);
         setTxt=true;
       }
       else {
-        G.$E.conVwTb.find('.description')('');
+        G.$E.conVwTb.find('.description').html('');
       }
 
       // custom elements
@@ -8369,7 +8369,7 @@ nanoGALLERY v5.10.3 release notes.
       // set page number
       var viewerMaxImages= galleryCountImages();
       if( viewerMaxImages > 0 ) {
-        G.$E.conVwTb.find('.pageCounter')((G.I[imageIdx].imageNumber+1)+'/'+viewerMaxImages);
+        G.$E.conVwTb.find('.pageCounter').html((G.I[imageIdx].imageNumber+1)+'/'+viewerMaxImages);
       }
 
       //ResizeInternalViewer();
@@ -8405,7 +8405,7 @@ nanoGALLERY v5.10.3 release notes.
           ngscreenfull.exit();
         }
 
-        G.$E.conVwCon.hide(0).off().show(0)('').remove();
+        G.$E.conVwCon.hide(0).off().show(0).html('').remove();
 
         G.containerViewerDisplayed=false;
         if( G.albumIdxToOpenOnViewerClose != -1 ) {
