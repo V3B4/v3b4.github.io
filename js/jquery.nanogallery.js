@@ -761,7 +761,7 @@ nanoGALLERY v5.10.3 release notes.
     };
 
     // ### Flickr
-    // Details: http://www.flickr.com/services/api/misc.urls.html
+    // Details: http://www.flickr.com/services/api/misc.urls
     G.flickr = {
       url: function() {
         // Flickr API Going SSL-Only on June 27th, 2014
@@ -5223,7 +5223,7 @@ nanoGALLERY v5.10.3 release notes.
           att.$e.css({'opacity': 0 });
           G.containerThumbnailsDisplayed=false;
           //      G.$E.conTn.off().empty();
-          G.$E.conTn.hide(0).off().show(0).html('');
+          G.$E.conTn.hide(0).off().show(0)('');
           var l=G.I.length;
           for( var i=0; i < l ; i++ ) {
 
@@ -5249,7 +5249,7 @@ nanoGALLERY v5.10.3 release notes.
         // remove gallery elements
         G.containerThumbnailsDisplayed=false;
         //      G.$E.conTn.off().empty();
-        G.$E.conTn.hide(0).off().show(0).html('');
+        G.$E.conTn.hide(0).off().show(0)('');
         var l=G.I.length;
         for( var i=0; i < l ; i++ ) {
           G.I[i].hovered=false;
@@ -8337,19 +8337,19 @@ nanoGALLERY v5.10.3 release notes.
       var setTxt=false;
       // set title
       if( G.I[imageIdx].title !== undefined && G.I[imageIdx].title != '' ) {
-        G.$E.conVwTb.find('.title').html(G.I[imageIdx].title);
+        G.$E.conVwTb.find('.title')(G.I[imageIdx].title);
         setTxt=true;
       }
       else {
-        G.$E.conVwTb.find('.title').html('');
+        G.$E.conVwTb.find('.title')('');
       }
       // set description
       if( G.I[imageIdx].description !== undefined && G.I[imageIdx].description != '' ) {
-        G.$E.conVwTb.find('.description').html(G.I[imageIdx].description);
+        G.$E.conVwTb.find('.description')(G.I[imageIdx].description);
         setTxt=true;
       }
       else {
-        G.$E.conVwTb.find('.description').html('');
+        G.$E.conVwTb.find('.description')('');
       }
 
       // custom elements
@@ -8369,7 +8369,7 @@ nanoGALLERY v5.10.3 release notes.
       // set page number
       var viewerMaxImages= galleryCountImages();
       if( viewerMaxImages > 0 ) {
-        G.$E.conVwTb.find('.pageCounter').html((G.I[imageIdx].imageNumber+1)+'/'+viewerMaxImages);
+        G.$E.conVwTb.find('.pageCounter')((G.I[imageIdx].imageNumber+1)+'/'+viewerMaxImages);
       }
 
       //ResizeInternalViewer();
@@ -8405,7 +8405,7 @@ nanoGALLERY v5.10.3 release notes.
           ngscreenfull.exit();
         }
 
-        G.$E.conVwCon.hide(0).off().show(0).html('').remove();
+        G.$E.conVwCon.hide(0).off().show(0)('').remove();
 
         G.containerViewerDisplayed=false;
         if( G.albumIdxToOpenOnViewerClose != -1 ) {

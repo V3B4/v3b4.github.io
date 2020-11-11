@@ -1628,7 +1628,7 @@ var _gestureStartTime,
 		// Allow dragging only via left mouse button.
 		// As this handler is not added in IE8 - we ignore e.which
 		// 
-		// http://www.quirksmode.org/js/events_properties.html
+		// http://www.quirksmode.org/js/events_properties
 		// https://developer.mozilla.org/en-US/docs/Web/API/event.button
 		if(e.type === 'mousedown' && e.button > 0  ) {
 			return;
@@ -3035,11 +3035,11 @@ _registerModule('Controller', {
 
 			
 
-			if(!item.src && item.html) {
-				if(item.html.tagName) {
-					baseDiv.appendChild(item.html);
+			if(!item.src && item) {
+				if(item.tagName) {
+					baseDiv.appendChild(item);
 				} else {
-					baseDiv.innerHTML = item.html;
+					baseDiv.innerHTML = item;
 				}
 			}
 
@@ -3828,7 +3828,7 @@ function PhotoSwipeMounter($) {
 
                     $caption_element = $parent.find(selector);
                     if ($caption_element.length) {
-                        return $caption_element.html();
+                        return $caption_element();
                     }
 
                     return get_caption($parent, selector);
@@ -3844,7 +3844,7 @@ function PhotoSwipeMounter($) {
                 if (caption_classname = $img.data('caption-class')) {
                     title = get_caption($img, '.' + caption_classname);
                 } else if (($figcaption = $img.closest('figure').find('figcaption')) && $figcaption.length) {
-                    title = $figcaption.html();
+                    title = $figcaption();
                 } else {
                     title = $img.attr('alt');
                 }
