@@ -1,4 +1,4 @@
-﻿;(function (d, $) {
+﻿(function (d, $) {
 
   // pagetop pattern3
 
@@ -57,4 +57,21 @@ $(function() {
         $('#slidebg').toggleClass('active');
         $('#back').hide();
     });
+});
+
+function drawUnderLine() {
+	$("h1").each(function() {
+	  var position = $(this).offset().top; 
+	  var scroll = $(window).scrollTop(); 
+	  var windowHeight = $(window).height(); 
+	  if (scroll > position - windowHeight) {
+	    $(this).addClass('active'); 
+	  }
+	});
+};
+$(document).ready(function() {
+    drawUnderLine();
+});
+$(window).scroll(function() {
+    drawUnderLine();
 });

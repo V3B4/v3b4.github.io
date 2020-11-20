@@ -86,15 +86,31 @@ figcaption {
 
 /*上部見出し用*/
 article h1 {
-	margin: 0 0 5px;
-	padding: 7px 10px 0;
+	margin: 0 0 0.5px;
+    /*padding: 7px 10px 0;*/
+    padding: 0;
 	width: calc(100% - 20px);
-	border-bottom: solid 4px rgba(228, 213, 128, 0.89); /*43b3e7;*/
     font-size: 28px;
     color: rgb(228, 213, 128);
     font-weight: 500;
     text-align: left;
+    /*border-bottom: solid 4px rgba(228, 213, 128, 0.89); 43b3e7;*/
 }
+article h1::after {
+    background-color: rgb(255, 71, 71);
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 4px;
+    left: 0;
+    position: relative;
+    transition: .5s all;
+    width: 0;
+}
+article h1.active::after{
+    width: calc(100% + 20px);
+}
+
 /*box内見出し用*/
 article h2 {
     text-align: left;

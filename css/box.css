@@ -114,10 +114,7 @@ div.photos{
 .content{
     position: relative;
 }
-.content h3 a{
-    text-decoration-color: rgba(255,255,255,0.95);
-    color: rgba(255,255,255,0.95);
-}
+
 
 /*真ん中*/
 .content h3{
@@ -135,6 +132,13 @@ div.photos{
     border-left: none;
     border-left: solid 7px rgb(230, 225, 166);/*左線*/
 }
+.content h3 a{
+    text-decoration-color: rgba(255,255,255,0.95);
+    color: rgba(255,255,255,0.95);
+}
+.content h3 a:hover {
+    text-decoration: underline #e4e1b5;
+}
 /*左下 小*/
 .content h4{
     position: absolute;
@@ -149,6 +153,7 @@ div.photos{
     background: rgba(0,0,0,0.4);
     width: calc(100% - 1vw);
 }
+
 /*左下 大*/
 .content h5{
     position: absolute;
@@ -163,6 +168,7 @@ div.photos{
     background: rgba(0,0,0,0.4);
     width: calc(100% - 1vw);
 }
+
 .content img{
     width: 100%;
 }
@@ -175,6 +181,10 @@ div.photos{
     transition: filter 0.3s ease;
 }
 
+.content :hover {
+    color:#e4e1b5;
+    transition: all .3s;
+}
 
 
 
