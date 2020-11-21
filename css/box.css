@@ -143,11 +143,14 @@ div.photos{
     border-left: solid 7px rgb(230, 225, 166);
 }
 .content h3 a{
-    text-decoration-color: rgba(255,255,255,0.95);
+    text-decoration-color: rgba(255,255,255,0.9);
     color: rgba(255,255,255,0.95);
+    transition: all .3s;
 }
+
 .content h3 a:hover {
-    text-decoration: underline #e4e1b5;
+    color: rgba(230, 225, 166, 0.95);
+    text-decoration-color: rgba(230, 225, 166, 0.95);
 }
 /*左下 小*/
 .content h4{
