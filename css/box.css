@@ -138,20 +138,64 @@ div.photos{
     border-left: none;
     border-left: solid 7px rgba(230, 225, 166, 0);
 }
+.content h3 a{
+  position: relative;
+  display: inline-block;
+}
 .content h3.active {
     transition: all 1s;
     border-left: solid 7px rgb(230, 225, 166);
 }
 .content h3 a{
-    text-decoration-color: rgba(255,255,255,0.9);
+    text-decoration: none;
     color: rgba(255,255,255,0.95);
     transition: all .3s;
 }
-
 .content h3 a:hover {
     color: rgba(230, 225, 166, 0.95);
-    text-decoration-color: rgba(230, 225, 166, 0.95);
 }
+
+/* 中央に収束
+.content h3 a:before,
+.content h3 a:after{
+  position: absolute;
+  top: 1.2em;
+  content: "";
+  display: inline-block;
+  width: 50%;
+  height: 2px; 
+  background: rgb(255, 255, 255);
+  transition: .7s;
+}
+.content h3 a:before{
+  right: 50%;
+}
+.content h3 a:after{
+  left: 50%;
+}
+.content h3 a:hover:before,
+.content h3 a:hover:after{
+  width: 0%;
+  background: rgba(230, 225, 166, 0);
+}*/
+.content h3 a:before {
+  position: absolute;
+  top: 1.2em;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 2px; 
+  background: rgb(255, 255, 255);
+  transition: .7s;
+  left: 0;
+}
+.content h3 a:hover:before {
+  width: 0%;
+  background: rgba(230, 225, 166, 0);
+}
+
+
+
 /*左下 小*/
 .content h4{
     position: absolute;
