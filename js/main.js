@@ -59,19 +59,33 @@ $(function() {
     });
 });
 
+/*
 function drawUnderLine() {
-	$(".animationUnderLine").each(function() {
-	  var position = $(this).offset().top; 
-	  var scroll = $(window).scrollTop(); 
-	  var windowHeight = $(window).height(); 
-	  if (scroll > position - windowHeight) {
-	    $(this).addClass('active'); 
-	  }
+  var position = $(this).offset().top; 
+  var scroll = $(window).scrollTop(); 
+  var windowHeight = $(window).height(); 
+  if (scroll > position - windowHeight) {
+    $(".animationUnderLine").each.addClass('active');
+  }
+};
+*/
+
+function addActive(elementNames) {
+  elementNames.forEach(function(name) {
+  	$(name).each(function() {
+	    var position = $(this).offset().top; 
+	    var scroll = $(window).scrollTop(); 
+	    var windowHeight = $(window).height(); 
+	    if (scroll > position - windowHeight) {
+	      $(this).addClass('active'); 
+      }
+    });
 	});
 };
+addActiveElements = [".animationUnderLine", "h2", "h3", ".boxContainer"]
 $(document).ready(function() {
-    drawUnderLine();
+    addActive(addActiveElements);
 });
 $(window).scroll(function() {
-    drawUnderLine();
+    addActive(addActiveElements);
 });

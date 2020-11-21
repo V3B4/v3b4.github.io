@@ -118,7 +118,11 @@ article h2 {
     font-weight: 500;
     margin: 5px 0 0;
 	padding: 0px 10px;
-	border-left: solid 7px rgb(248, 232, 142);/*左線*/
+	border-left: solid 7px rgba(248, 232, 142, 0);
+}
+article h2.active {
+    transition: all 1s;
+    border-left: solid 7px rgb(230, 225, 166);
 }
 /*box内見出し用*/
 article h3 {
@@ -128,9 +132,12 @@ article h3 {
     font-weight: 540;
     margin: 5px 5px;
 	padding: 0px 6px;
-	border-left: solid 7px rgb(230, 225, 166);/*左線*/
+    border-left: solid 7px rgba(230, 225, 166, 0);
 }
-
+article h3.active {
+    transition: all 1s;
+    border-left: solid 7px rgb(230, 225, 166);/*左線*/
+}
 
 
 .center{
@@ -141,6 +148,10 @@ img {
     max-width:100%;
     /*max-height:100%;*/
     vertical-align: bottom;
+}
+img.active {
+    opacity : 1;
+    transition: 1s ease;
 }
 img.box-shadow{
     box-shadow: 2px 4px 12px -5px rgba(0, 0, 0, 1); /*横方向　下方向　ぼかし　広がり　色 */
