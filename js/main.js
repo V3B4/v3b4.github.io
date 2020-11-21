@@ -60,7 +60,7 @@ $(function() {
 });
 
 function drawUnderLine() {
-	$("h1").each(function() {
+	$(".animationUnderLine").each(function() {
 	  var position = $(this).offset().top; 
 	  var scroll = $(window).scrollTop(); 
 	  var windowHeight = $(window).height(); 
