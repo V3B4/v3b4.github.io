@@ -1,12 +1,9 @@
 .boxContainer{
     overflow: hidden;
     clear: both;
-    opacity : 0;
 }
 
 .boxContainer.active {
-    opacity : 1;
-    transition: .6s ease;
 }
 
 div.photos{
@@ -68,7 +65,13 @@ div.photos{
     position: relative;
     float: left;
     margin: 0.1% 0.38% 0.9%;
+    opacity : 0;
 }
+.box-2.active, .box-3.active, .box-3-sp-2.active, .box-4.active, .box-4-sp-2.active, .box-5.active, .box-55.active, .box-6.active, .box-7.active, .box-9.active, .box-8.active, .box-10.active, .box-12.active{
+    opacity : 1;
+    transition: .6s ease;
+}
+
 .box-zong, .box-heng, .box-heng-child, .box-4-sp-3{
     position: relative;
     float: left;
