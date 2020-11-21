@@ -247,7 +247,15 @@ body::-webkit-scrollbar-thumb {
   border-radius: 4px 4px 4px 4px;
   background: rgba(0, 0, 0, 0.5);
   text-decoration: none;
+  transition: all .5s;
+  border: 1px solid rgba(0, 0, 0, 0);
 }
+.pagetop3 a:hover{
+  border: 1px solid rgba(255, 255, 255, 0.767);
+}
+
+
+
 @media only screen and (max-width: 480px) {
     .pagetop3{
         display: none;

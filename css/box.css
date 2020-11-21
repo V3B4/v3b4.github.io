@@ -3,9 +3,6 @@
     clear: both;
 }
 
-.boxContainer.active {
-}
-
 div.photos{
     width: 100%;
     margin: 0;
@@ -163,7 +160,7 @@ div.photos{
     transform: translate(0%, 0%);
     margin: 0;
     padding: 0 0.5vw;
-    background: rgba(0,0,0,0.4);
+    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.7) 40%);
     width: calc(100% - 1vw);
 }
 
@@ -178,7 +175,7 @@ div.photos{
     transform: translate(0%, 0%);
     margin: 0;
     padding: 0 0.5vw;
-    background: rgba(0,0,0,0.4);
+    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.7) 50%);
     width: calc(100% - 1vw);
 }
 
@@ -194,10 +191,10 @@ div.photos{
     transition: filter 0.3s ease;
 }
 
-.content :hover {
+/*.content :hover {
     color:#e4e1b5;
     transition: all .3s;
-}
+}*/
 
 
 
@@ -296,4 +293,49 @@ img.hover-mask{
     img.hover-mask{
         filter: brightness(1);
     }
+}
+
+.animationBorder {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 2px solid rgba(0,0,0,0);
+  text-decoration: none;
+  outline: none;
+  transition: all .2s;
+}
+.animationBorder::before,
+.animationBorder::after {
+  position: absolute;
+  z-index: 2;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 2px solid transparent;
+}
+.animationBorder::before {
+  top: -2px;
+  left: -2px;
+}
+.animationBorder::after {
+  bottom: -2px;
+  right: -2px;
+}
+.animationBorder:hover {
+  color: rgba(255,71,71,.9);
+}
+.animationBorder:hover::before,
+.animationBorder:hover::after {
+  width: 100%;
+  height: 100%;
+}
+.animationBorder:hover::before {
+  border-bottom-color: rgba(255,71,71,.9);
+  border-left-color: rgba(255,71,71,.9);
+  transition: height .3s, width .3s .3s;
+}
+.animationBorder:hover::after {
+  border-top-color: rgba(255,71,71,.9);
+  border-right-color: rgba(255,71,71,.9);
+  transition: height .3s, width .3s .3s;
 }
