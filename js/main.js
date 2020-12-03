@@ -94,3 +94,7 @@ $(window).scroll(function() {
 
 document.oncontextmenu = function(){ return false; };
 document.body.oncontextmenu = "return false;"
+document.onselectstart = function(){ return false; };
+document.onmousedown = function(){ return false; };
+document.body.onselectstart = "return false;"
+document.body.onmousedown = "return false;"
