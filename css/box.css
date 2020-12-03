@@ -280,7 +280,7 @@ p.caption{
         width: 31%;
         margin: 0% 1% 2%;
     }
-    ,.push-05, .push-1, .push-15, .push-2, .push-3, .push-4, .pluu-05, .pull-15, .pull-2{
+    .push-05, .push-1, .push-15, .push-2, .push-3, .push-4, .pluu-05, .pull-15, .pull-2{
         margin-left: 0;
     }
 }
@@ -326,19 +326,18 @@ figure.gallery:hover .hover-mask {
     transition:all 0.6s ease;
 }
 
-img.hover-mask:hover {
-    filter: brightness(1.2);
-    transition:all 0.4s ease;
-    box-shadow: 0 0 0.3em 0.1em rgba(255,255,255,0.1);
-}
 img.hover-mask{
     filter: brightness(0.95);
-    transition:all 0.4s ease;
+    transition: all .5s;
 }
 @media only screen and (max-width: 480px) {
     img.hover-mask{
         filter: brightness(1);
     }
+}
+img.hover-mask:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 0 0.3em 0.1em rgba(255,255,255,0.1);
 }
 
 .animationBorder {
