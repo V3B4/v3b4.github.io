@@ -84,9 +84,10 @@ function addActive(elementNames) {
 };
 addActiveElements = [".animationUnderLine", "h2", "h3", 
 ".box-2", ".box-3", ".box-3-sp-2", ".box-4", ".box-4-sp-2", ".box-5", ".box-55", ".box-6", ".box-7", ".box-9", ".box-8", ".box-10", ".box-12"]
-$(document).ready(function() {
+//$(document).ready(function() {
+window.onload = function () {
     addActive(addActiveElements);
-});
+};
 $(window).scroll(function() {
     addActive(addActiveElements);
 });
