@@ -160,7 +160,7 @@ nanoGALLERY v5.10.3 release notes.
     lazyBuild : 'none', lazyBuildTreshold : 150,
     debugMode: false,
     i18n : {
-      'breadcrumbHome' : '写真帖', 'breadcrumbHome_FR' : 'Galeries', 'breadcrumbHome_ES' : 'Galer&iacute;as',
+      'breadcrumbHome' : 'おでかけ訪問写真', 'breadcrumbHome_FR' : 'Galeries', 'breadcrumbHome_ES' : 'Galer&iacute;as',
       'paginationPrevious' : 'Previous', 'paginationPrevious_FR' : 'Pr&eacute;c&eacute;dent', 'paginationPrevious_DE' : 'Zur&uuml;ck', 'paginationPrevious_IT' : 'Indietro',' paginationPrevious_ES' : 'Anterior',
       'paginationNext' : 'Next', 'paginationNext_FR' : 'Suivant', 'paginationNext_DE' : 'Weiter', 'paginationNext_IT' : 'Avanti', 'paginationNext_ES' : 'Siguiente',
       'thumbnailLabelItemsCountPart1' : '', //'| ',
@@ -10337,18 +10337,14 @@ return ngImagesLoaded;
 
 
 jQuery(document).ready(function () {
-	jQuery("#nanoGallery1").nanoGallery({
+	jQuery("#nanoGallery2").nanoGallery({
 		thumbnailWidth: 'auto',
 		thumbnailHeight: 350,
 		thumbnailGutterWidth : 0,
 		thumbnailGutterHeight : 0,
-    thumbnailLabel: { valign: "bottom", position: 'overImage', hideIcons: true },
-		thumbnailHoverEffect: [{ name: 'labelAppear75', duration: 300 }],
-		thumbnailL1HoverEffect: [{ name: 'borderLighter'}],
-		
-		kind:'flickr',
-		userID:'185713415@N03',
+		thumbnailHoverEffect: [{ name: 'borderLighter'}],
+    thumbnailLabel: { display: false },
+    thumbnailL1Label: { valign: "bottom", position: 'overImage', hideIcons: true, display: true},
+  });
 
-		//colorScheme: 'white'
-	});
 });
