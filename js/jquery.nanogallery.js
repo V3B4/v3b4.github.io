@@ -160,7 +160,7 @@ nanoGALLERY v5.10.3 release notes.
     lazyBuild : 'none', lazyBuildTreshold : 150,
     debugMode: false,
     i18n : {
-      'breadcrumbHome' : '写真帖', 'breadcrumbHome_FR' : 'Galeries', 'breadcrumbHome_ES' : 'Galer&iacute;as',
+      'breadcrumbHome' : 'Flickrのアルバム', 'breadcrumbHome_FR' : 'Galeries', 'breadcrumbHome_ES' : 'Galer&iacute;as',
       'paginationPrevious' : 'Previous', 'paginationPrevious_FR' : 'Pr&eacute;c&eacute;dent', 'paginationPrevious_DE' : 'Zur&uuml;ck', 'paginationPrevious_IT' : 'Indietro',' paginationPrevious_ES' : 'Anterior',
       'paginationNext' : 'Next', 'paginationNext_FR' : 'Suivant', 'paginationNext_DE' : 'Weiter', 'paginationNext_IT' : 'Avanti', 'paginationNext_ES' : 'Siguiente',
       'thumbnailLabelItemsCountPart1' : '', //'| ',

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>おでかけ訪問写真</title>
+   <link rel="icon" href="images/common/icon.png" type="image/png">
+   <meta name="theme-color" content="#000">
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/menu.css">
+   <link rel="stylesheet" href="css/box.css">
+   <link rel="stylesheet" href="css/nanogallery/nanogallery.css">
+   <style type="text/css">
+      body {
+         background: #000;
+      }
+
+      .tag::before {
+         content: "#";
+      }
+
+      .tag {
+         font-size: 15px;
+      }
+
+      .nanoGalleryBreadcrumb .folderHome:before {
+         content: '\e821' !important;
+      }
+
+      .search-container {
+         margin-left: 15px;
+      }
+
+      .search-container input[type="text"] {
+         border: none;
+         height: 25px;
+         background-color: rgb(255, 255, 255);
+      }
+
+      .search-container input[type="text"]:focus {
+         outline: 0;
+      }
+
+      .search-container button[type="submit"] {
+         cursor: pointer;
+         border: none;
+         background: #ffffff;
+         color: rgb(0, 0, 0);
+         width: 3.5em;
+         height: 25px;
+         right: 0px;
+         outline: none;
+      }
+
+      article {
+         width: 100vw;
+         margin: 10px;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="slidebg"></div>
+   <div id="wrapper"></div>
+   <header>
+      <div id="title"><a href="/"><img src="images/common/title.png"></a></div>
+      <div id="menu">
+         <li class="side"><a href="/">ホーム</a></li>
+         <li class="side"><a href="photos">写真帖</a></li>
+         <li class="side"><a href="preservation">保存車両</a></li>
+         <li class="side"><a href="keisei">京成電鉄</a></li>
+         <li class="side"><a href="tram">路面電車</a></li>
+         <li class="side"><a href="exploration">探訪</a></li>
+         <li class="side"><a href="https://v3b4.hateblo.jp/" target="_blank">ブログ</a></li>
+      </div>
+   </header>
+   <a class="menu-trigger" href="#slidebg"><span></span><span></span><span></span></a>
+   <div id="slidemenu">
+      <li><a href="javascript:history.go(-2)">
+            <div id="back">前のページへ</div>
+         </a></li>
+      <li><a href="#wrapper">
+            <div id="totop">ページ上部へ</div>
+         </a></li>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="photos">写真帖</a></li>
+      <li><a href="preservation">保存車両</a></li>
+      <li><a href="keisei">京成電鉄</a></li>
+      <li><a href="tram">路面電車</a></li>
+      <li><a href="exploration">探訪</a></li>
+      <li><a href="https://v3b4.hateblo.jp/" target="_blank">ブログ</a></li>
+   </div>
+   <div class="empty"></div>
+
+   <div class="search-container">
+      <div class="inline-block">
+         <a href="photos">Flickr</a>
+         <span>マイマップ&DB検索</span>
+      </div>
+      <div class="inline-block">
+         <input type="text" id="keyword" size="25" placeholder=" キーワード" onkeypress="pushEnter(event.keyCode);">
+         <button type="submit" id="search" value="検索" onclick="search()">検索</button>
+      </div>
+   </div>
+   <article>
+      <h3>マイマップ検索(試験公開中)</h3>
+      <p><a href="mymap" target="_blank">おでかけ訪問マップ</a>にアップロードされたアルバムから検索を行います。<br>キーワードが未入力の場合はすべてのアルバムが表示されます。</p>
+   </article>
+
+
+   <div id="nanoGallery2"></div>
+   <p class="pagetop"><a href="#wrapper">Back to Top</a></p>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/jquery.easing.js"></script>
+   <script src="js/main.js"></script>
+   <script src="js/jquery.nanogallery.js"></script>
+
+   <script>
+      let keyword = ''
+
+      // テキストボックス内でエンターキーが押された場合
+      const pushEnter = (code) => {
+         if (code == 13) {
+            search()
+            updateFolderHome()
+         }
+      }
+
+      // 検索ボタンが押されるとresultsに結果のJSONを格納
+      const search = () => {
+         let results = []
+         keyword = $('#keyword').val()
+         $.getJSON('https://raw.githubusercontent.com/V3B4/public/main/test.json', (json) => {
+            $.each(json, (key, array) => {
+               console.log(key)
+               if (key.indexOf(keyword) >= 0) {
+                  array.forEach(element => {
+                     results.push(element)
+                  });
+               }
+            })
+            showGallery(results)
+         })
+      }
+
+      // アルバムを表示
+      const showGallery = (results) => {
+         location.hash = ''
+         $('#nanoGallery2').remove()
+         $('div.search-container').after('<div id="nanoGallery2"></div>')
+         $('#nanoGallery2').nanoGallery({
+            thumbnailWidth: 'auto',
+            thumbnailHeight: 350,
+            thumbnailGutterWidth: 0,
+            thumbnailGutterHeight: 0,
+            thumbnailHoverEffect: [{ name: 'borderLighter' }],
+            thumbnailLabel: { display: false },
+            thumbnailL1Label: { valign: "bottom", position: 'overImage', hideIcons: true, display: true },
+            items: results
+         })
+         updateFolderHome()
+      }
+
+      $('*').click(() => updateFolderHome())
+
+      const updateFolderHome = () => {
+         if (keyword == '') {
+            $('div.folderHome').text('すべてのアルバム')
+         } else {
+            $('div.folderHome').text('「' + keyword + '」の検索結果')
+         }
+         $('article').hide()
+      }
+
+
+   </script>
+
+</body>
+
+</html>

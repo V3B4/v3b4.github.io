@@ -462,3 +462,6 @@ display:inline;
 background-color: #888;
 }
 
+.inline-block {
+    display: inline-block;
+}

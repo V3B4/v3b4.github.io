@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +13,7 @@
 	<link rel="stylesheet" href="css/nanogallery/nanogallery.css">
 
 	<style type="text/css">
-		body{
+		body {
 			background: #000;
 		}
 	</style>
@@ -23,7 +24,11 @@
 	<div id="slidebg"></div>
 	<div id="wrapper"></div>
 	<header>
-		<div id="title"><a href="/"><picture><source srcset="images/common/title.webp" type="image/webp"><img src="images/common/title.png"></picture></a></div>
+		<div id="title"><a href="/">
+				<picture>
+					<source srcset="images/common/title.webp" type="image/webp"><img src="images/common/title.png">
+				</picture>
+			</a></div>
 		<div id="menu">
 			<li class="side"><a href="/">ホーム</a></li>
 			<li class="side"><a href="photos">写真帖</a></li>
@@ -37,8 +42,12 @@
 
 	<a class="menu-trigger" href="#slidebg"><span></span><span></span><span></span></a>
 	<div id="slidemenu">
-		<li><a href="javascript:history.go(-2)"><div id="back">前のページへ</div></a></li>
-		<li><a href="#wrapper"><div id="totop">ページ上部へ</div></a></li>
+		<li><a href="javascript:history.go(-2)">
+				<div id="back">前のページへ</div>
+			</a></li>
+		<li><a href="#wrapper">
+				<div id="totop">ページ上部へ</div>
+			</a></li>
 		<li><a href="/">ホーム</a></li>
 		<li><a href="photos">写真帖</a></li>
 		<li><a href="preservation">保存車両</a></li>
@@ -48,18 +57,23 @@
 		<li><a href="https://v3b4.hateblo.jp/" target="_blank">ブログ</a></li>
 	</div>
 
-
 	<div class="empty"></div>
 
+	<div class="search-container">
+		<div class="inline-block">
+			<span>Flickr</span>
+			<a href="photos-search">マイマップ&DB検索</a>
+		</div>
+	</div>
 	<div id="nanoGallery1"></div>
-		
 
 	<p class="pagetop"><a href="#wrapper">Back to Top</a></p>
-	
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.easing.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/jquery.nanogallery.js"></script>
 
 </body>
+
 </html>
