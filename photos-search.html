@@ -142,7 +142,7 @@
       const search = () => {
          let results = []
          //keyword = $('#keyword').val()
-         $.getJSON('https://raw.githubusercontent.com/V3B4/public/main/test2.json', (json) => {
+         $.getJSON('https://raw.githubusercontent.com/V3B4/public/main/test.json', (json) => {
             $.each(json, (key, array) => {
                if (key.indexOf(keyword) >= 0) {
                   array.forEach(element => {
