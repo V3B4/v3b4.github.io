@@ -99,8 +99,11 @@
          <span>マイマップ&DB検索</span>
       </div>
       <div class="inline-block">
-         <input type="text" id="keyword" size="25" placeholder=" キーワード" onkeypress="pushEnter(event.keyCode);">
-         <button type="submit" id="search" value="検索" onclick="search()">検索</button>
+         <form method="get" action="photos-search.html">
+            <input type="text" id="keyword" size="25" placeholder=" キーワード" onkeypress="pushEnter(event.keyCode);"
+               name="keyword">
+            <button type="submit" id="search" value="検索" onclick="search()">検索</button>
+         </form>
       </div>
    </div>
    <article>
@@ -118,26 +121,33 @@
 
    <script>
       let keyword = ''
+      $(document).ready(() => {
+         const params = new URL(window.location.href).searchParams
+         keyword = params.get('keyword')
+         if (keyword != null) {
+            search()
+            $('#keyword').val(keyword)
+         }
+      })
 
       // テキストボックス内でエンターキーが押された場合
       const pushEnter = (code) => {
          if (code == 13) {
             search()
-            updateFolderHome()
+            //updateFolderHome()
          }
       }
 
       // 検索ボタンが押されるとresultsに結果のJSONを格納
       const search = () => {
          let results = []
-         keyword = $('#keyword').val()
-         $.getJSON('https://raw.githubusercontent.com/V3B4/public/main/test.json', (json) => {
+         //keyword = $('#keyword').val()
+         $.getJSON('https://raw.githubusercontent.com/V3B4/public/main/test2.json', (json) => {
             $.each(json, (key, array) => {
-               console.log(key)
                if (key.indexOf(keyword) >= 0) {
                   array.forEach(element => {
                      results.push(element)
-                  });
+                  })
                }
             })
             showGallery(results)
@@ -146,9 +156,9 @@
 
       // アルバムを表示
       const showGallery = (results) => {
-         location.hash = ''
+         /*location.hash = ''
          $('#nanoGallery2').remove()
-         $('div.search-container').after('<div id="nanoGallery2"></div>')
+         $('div.search-container').after('<div id="nanoGallery2"></div>')*/
          $('#nanoGallery2').nanoGallery({
             thumbnailWidth: 'auto',
             thumbnailHeight: 350,
@@ -159,10 +169,10 @@
             thumbnailL1Label: { valign: "bottom", position: 'overImage', hideIcons: true, display: true },
             items: results
          })
-         updateFolderHome()
+         $('article').hide()
+         //updateFolderHome()
       }
 
-      $('*').click(() => updateFolderHome())
 
       const updateFolderHome = () => {
          if (keyword == '') {
@@ -170,7 +180,6 @@
          } else {
             $('div.folderHome').text('「' + keyword + '」の検索結果')
          }
-         $('article').hide()
       }
 
 
