@@ -28,33 +28,44 @@
          content: '\e821' !important;
       }
 
-      .search-container {
-         margin-left: 15px;
+      form {
+         position: relative;
       }
 
-      .search-container input[type="text"] {
-         border: none;
-         height: 25px;
-         background-color: rgb(255, 255, 255);
-      }
-
-      .search-container input[type="text"]:focus {
+      #keyword {
          outline: 0;
+         height: 40px;
+         margin: 0;
+         padding: 0 10px;
+         border-radius: 2px 0 0 2px;
+         background: rgb(233, 233, 233);
+         color: rgb(0, 0, 0);
+         border: none;
+         font-size: 16px;
       }
 
-      .search-container button[type="submit"] {
-         cursor: pointer;
+      #search {
+         position: absolute;
+         width: 70px;
+         height: 40px;
+         border-radius: 0 2px 2px 0;
+         background: #727171;
          border: none;
-         background: #ffffff;
-         color: rgb(0, 0, 0);
-         width: 3.5em;
-         height: 25px;
-         right: 0px;
-         outline: none;
+         color: rgb(255, 255, 255);
+         font-weight: bold;
+         font-size: 16px;
+         margin: 0;
+         padding: 0;
+         cursor: pointer;
       }
+
+      #search:hover {
+         color: rgb(228, 228, 228);
+         background: #535353;
+      }
+
 
       article {
-         width: 100vw;
          margin: 10px;
       }
    </style>
@@ -101,7 +112,13 @@
       <div class="inline-block">
          <form method="get" action="photos-search.html">
             <input type="text" id="keyword" size="25" placeholder=" キーワード" onkeypress="pushEnter(event.keyCode);"
-               name="keyword">
+               name="keyword" list="example">
+            <datalist id="example">
+               <option value="団地"></option>
+               <option value="住宅"></option>
+               <option value="駅"></option>
+               <option value="商店街"></option>
+            </datalist>
             <button type="submit" id="search" value="検索" onclick="search()">検索</button>
          </form>
       </div>
@@ -150,7 +167,13 @@
                   })
                }
             })
-            showGallery(results)
+            if (results.length > 0) {
+               showGallery(results)
+            } else {
+               $('article').show()
+               $('article').children('h3').hide()
+               $('article').children('p').text('結果が見つかりませんでした')
+            }
          })
       }
 
