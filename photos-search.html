@@ -4,9 +4,14 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>おでかけ訪問写真</title>
+   <title>写真帖 マイマップ検索</title>
    <link rel="icon" href="images/common/icon.png" type="image/png">
    <meta name="theme-color" content="#000">
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:domain" content="https://v3b4.github.io">
+   <meta property="og:title" content="写真帖 マイマップ検索">
+   <meta property="og:description" content="今まで撮りためてきたマルチジャンル(電車と風景多め)の写真アルバム">
+   <meta property="og:image" content="images/common/photos-card.webp">
    <link rel="stylesheet" href="css/main.css">
    <link rel="stylesheet" href="css/menu.css">
    <link rel="stylesheet" href="css/box.css">
@@ -107,7 +112,7 @@
    <div class="search-container">
       <div class="inline-block">
          <a href="photos">Flickr</a>
-         <span>マイマップ&DB検索</span>
+         <span>マイマップ検索</span>
       </div>
       <div class="inline-block">
          <form method="get" action="photos-search.html">
@@ -159,7 +164,7 @@
       const search = () => {
          let results = []
          //keyword = $('#keyword').val()
-         $.getJSON('https://raw.githubusercontent.com/V3B4/public/main/test.json', (json) => {
+         $.getJSON('https://raw.githubusercontent.com/V3B4/public/main/db.json', (json) => {
             $.each(json, (key, array) => {
                if (key.indexOf(keyword) >= 0) {
                   array.forEach(element => {
