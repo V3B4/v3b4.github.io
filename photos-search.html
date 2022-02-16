@@ -117,7 +117,7 @@
          <span>マイマップ&DB検索</span>
       </div>
       <div class="inline-block">
-         <form method="get" action="photos-search.html">
+         <form method="get" action="photos-search">
             <input type="text" id="keyword" size="25" placeholder=" キーワード" onkeypress="pushEnter(event.keyCode);"
                name="keyword" list="example">
             <datalist id="example">
@@ -169,7 +169,7 @@
       const search = () => {
          let results = []
          //keyword = $('#keyword').val()
-         let jsons = ['https://raw.githubusercontent.com/V3B4/public/main/mymap.json', 'https://raw.githubusercontent.com/V3B4/public/main/db.json']
+         let jsons = ['https://raw.githubusercontent.com/V3B4/public/main/mymap.json', 'https://ss1.xrea.com/v3b4.s223.xrea.com/PhotosDB/db.json']
          $.ajaxSetup({async: false})
          for (let i = 0; i < jsons.length; i++) {
             $.getJSON(jsons[i], (json) => {
