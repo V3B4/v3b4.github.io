@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>写真帖 マイマップ検索</title>
+   <title>写真帖 マイマップ&DB検索</title>
    <link rel="icon" href="images/common/icon.png" type="image/png">
    <meta name="theme-color" content="#000">
    <meta name="twitter:card" content="summary_large_image">
@@ -114,7 +114,7 @@
    <div class="search-container">
       <div class="inline-block">
          <a href="photos">Flickr</a>
-         <span>マイマップ検索</span>
+         <span>マイマップ&DB検索</span>
       </div>
       <div class="inline-block">
          <form method="get" action="photos-search.html">
@@ -125,14 +125,17 @@
                <option value="住宅"></option>
                <option value="駅"></option>
                <option value="商店街"></option>
+               <option value="鉄道"></option>
+               <option value="バス"></option>
             </datalist>
             <button type="submit" id="search" value="検索" onclick="search()">検索</button>
          </form>
       </div>
    </div>
    <article>
-      <h3>マイマップ検索(試験公開中)</h3>
-      <p><a href="mymap" target="_blank">おでかけ訪問マップ</a>にアップロードされたアルバムから検索を行います。<br>キーワードが未入力の場合はすべてのアルバムが表示されます。</p>
+      <h3>マイマップ&DB検索(試験公開中)</h3>
+      <p><a href="mymap" target="_blank">おでかけ訪問マップ</a>とWEBサーバー上にアップロードされたアルバムから検索を行います。<br>キーワードが未入力の場合はすべてのアルバムが表示されます。
+      </p>
    </article>
 
 
@@ -166,22 +169,27 @@
       const search = () => {
          let results = []
          //keyword = $('#keyword').val()
-         $.getJSON('https://raw.githubusercontent.com/V3B4/public/main/mymap.json', (json) => {
-            $.each(json, (key, array) => {
-               if (key.indexOf(keyword) >= 0) {
-                  array.forEach(element => {
-                     results.push(element)
-                  })
-               }
+         let jsons = ['https://raw.githubusercontent.com/V3B4/public/main/mymap.json', 'https://raw.githubusercontent.com/V3B4/public/main/db.json']
+         $.ajaxSetup({async: false})
+         for (let i = 0; i < jsons.length; i++) {
+            $.getJSON(jsons[i], (json) => {
+               $.each(json, (key, array) => {
+                  if (key.toLowerCase().indexOf(keyword.toLowerCase()) >= 0) {
+                     array.forEach(element => {
+                        results.push(element)
+                     })
+                  }
+               })
             })
-            if (results.length > 0) {
-               showGallery(results)
-            } else {
-               $('article').show()
-               $('article').children('h3').hide()
-               $('article').children('p').text('結果が見つかりませんでした')
-            }
-         })
+         }
+         $.ajaxSetup({async: true})
+         if (results.length > 0) {
+            showGallery(results)
+         } else {
+            $('article').show()
+            $('article').children('h3').hide()
+            $('article').children('p').text('結果が見つかりませんでした')
+         }
       }
 
       // アルバムを表示
