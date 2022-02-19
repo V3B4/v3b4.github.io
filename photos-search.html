@@ -168,8 +168,7 @@
       // 検索ボタンが押されるとresultsに結果のJSONを格納
       const search = () => {
          let results = []
-         //keyword = $('#keyword').val()
-         let jsons = ['https://raw.githubusercontent.com/V3B4/public/main/mymap.json', 'https://raw.githubusercontent.com/V3B4/public/main/db.json']
+         let jsons = ['https://ss1.xrea.com/v3b4.s223.xrea.com/PhotosDB/mymap.json', 'https://ss1.xrea.com/v3b4.s223.xrea.com/PhotosDB/db.json']
          $.ajaxSetup({async: false})
          for (let i = 0; i < jsons.length; i++) {
             $.getJSON(jsons[i], (json) => {
@@ -194,9 +193,6 @@
 
       // アルバムを表示
       const showGallery = (results) => {
-         /*location.hash = ''
-         $('#nanoGallery2').remove()
-         $('div.search-container').after('<div id="nanoGallery2"></div>')*/
          $('#nanoGallery2').nanoGallery({
             thumbnailWidth: 'auto',
             thumbnailHeight: 350,
@@ -208,9 +204,7 @@
             items: results
          })
          $('article').hide()
-         //updateFolderHome()
       }
-
 
       const updateFolderHome = () => {
          if (keyword == '') {
