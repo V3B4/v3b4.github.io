@@ -469,3 +469,10 @@ background-color: #888;
     margin: 10px 15px 0;
     font-size: 20px;
 }
+
+div.tweetbutton {
+    display: none;
+}
+div.tweetbutton_sp {
+    display: none;
+}
