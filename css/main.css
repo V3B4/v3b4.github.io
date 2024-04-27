@@ -97,7 +97,7 @@ article h1 {
     opacity: 0;
 }
 article h1.active {
-    transition: all 1s;
+    transition: all 0.4s;
     opacity: 1;
 }
 
@@ -149,6 +149,13 @@ article h3.active {
     opacity: 1;
 }
 
+iframe {
+    opacity: 0;
+}
+iframe.active {
+    transition: all 1s;
+    opacity: 1;
+}
 
 .center{
     text-align: center;

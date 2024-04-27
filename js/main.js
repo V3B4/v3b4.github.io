@@ -82,7 +82,7 @@ function addActive(elementNames) {
     });
 	});
 };
-addActiveElements = [".animationUnderLine", "h1", "h2", "h3", 
+addActiveElements = [".animationUnderLine", "h1", "h2", "h3", "iframe",
 ".box-2", ".box-3", ".box-3-sp-2", ".box-4", ".box-4-sp-2", ".box-5", ".box-55", ".box-6", ".box-7", ".box-9", ".box-8", ".box-10", ".box-12"]
 //$(document).ready(function() {
 window.onload = function () {
