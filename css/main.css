@@ -94,7 +94,13 @@ article h1 {
     font-weight: 500;
     text-align: left;
     /*border-bottom: solid 4px rgba(228, 213, 128, 0.89); 43b3e7;*/
+    opacity: 0;
 }
+article h1.active {
+    transition: all 1s;
+    opacity: 1;
+}
+
 div.animationUnderLine::after {
     background-color: rgb(255, 71, 71);
     bottom: 0;
@@ -119,10 +125,12 @@ article h2 {
     margin: 5px 0 0;
 	padding: 0px 10px;
 	border-left: solid 7px rgba(248, 232, 142, 0);
+    opacity: 0;
 }
 article h2.active {
     transition: all 1s;
     border-left: solid 7px rgb(230, 225, 166);
+    opacity: 1;
 }
 /*box内見出し用*/
 article h3 {
@@ -133,10 +141,12 @@ article h3 {
     margin: 5px 5px;
 	padding: 0px 6px;
     border-left: solid 7px rgba(230, 225, 166, 0);
+    opacity: 0;
 }
 article h3.active {
     transition: all 1s;
     border-left: solid 7px rgb(230, 225, 166);/*左線*/
+    opacity: 1;
 }
 
 
