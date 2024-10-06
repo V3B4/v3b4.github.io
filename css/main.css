@@ -177,7 +177,7 @@ img.vertical-6 {  /*縦写真*/
     width: 44%;
 }
 @media screen and (max-width: 480px) {
-    img.vertical-6 { 
+    img.vertical-6, img.vertical-3 { 
         width: 70%;
     }
 }
