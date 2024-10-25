@@ -161,6 +161,10 @@ iframe.active {
     text-align: center;
 }
 
+.black-background {
+    background-color: #000;
+}
+
 img {
     max-width:100%;
     /*max-height:100%;*/
