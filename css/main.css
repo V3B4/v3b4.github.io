@@ -58,6 +58,11 @@ p {
     font-size: 17px;
     color: rgb(255, 255, 255);
     font-weight: 300;
+    opacity: 0;
+}
+p.active {
+    transition: all 0.1s;
+    opacity: 1;
 }
 
 p.copyright{
