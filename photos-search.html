@@ -133,7 +133,7 @@
       </div>
    </div>
    <article>
-      <h3>マイマップ&DB検索(試験公開中)</h3>
+      <h3>マイマップ&DB検索(改修中)</h3>
       <p><a href="mymap" target="_blank">おでかけ訪問マップ</a>とWEBサーバー上にアップロードされたアルバムから検索を行います。<br>キーワードが未入力の場合はすべてのアルバムが表示されますが、重いので非推奨です。
       </p>
    </article>
@@ -168,7 +168,8 @@
       // 検索ボタンが押されるとresultsに結果のJSONを格納
       const search = () => {
          let results = []
-         let jsons = ['https://ss1.xrea.com/v3b4.s223.xrea.com/PhotosDB/mymap.json', 'https://ss1.xrea.com/v3b4.s223.xrea.com/PhotosDB/db.json']
+         // let jsons = ['https://ss1.xrea.com/v3b4.s223.xrea.com/PhotosDB/mymap.json', 'https://ss1.xrea.com/v3b4.s223.xrea.com/PhotosDB/db.json']
+         let jsons = ['https://ss1.xrea.com/v3b4.s223.xrea.com/PhotosDB/db.json']
          $.ajaxSetup({async: false})
          for (let i = 0; i < jsons.length; i++) {
             $.getJSON(jsons[i], (json) => {
