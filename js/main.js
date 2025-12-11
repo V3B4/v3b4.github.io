@@ -100,3 +100,45 @@ document.onmousedown = function(){ return false; };
 document.body.onselectstart = "return false;"
 document.body.onmousedown = "return false;"
 */
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 必要な要素を取得
+    const toggleButton = document.getElementById('AIToggleButton11');
+    const aiOff = document.querySelector('.AI-off');
+    const aiOn = document.querySelector('.AI-on');
+
+    // ボタンにクリックイベントリスナーを設定
+    toggleButton.addEventListener('click', function() {
+        // .ai-off要素の表示/非表示を切り替える
+        aiOff.classList.toggle('hidden');
+
+        // .ai-on要素の表示/非表示を切り替える
+        aiOn.classList.toggle('hidden');
+
+        // ボタンのテキストを切り替える (おまけ)
+        if (aiOn.classList.contains('hidden')) {
+            // ai-onが非表示（オフの状態）の場合
+            toggleButton.textContent = '表示をオンにする';
+        } else {
+            // ai-onが表示（オンの状態）の場合
+            toggleButton.textContent = '表示をオフにする';
+        }
+    });
+});
+
+
+
+$(function() {
+    $('.AIToggleButton').click(function(e){
+        e.preventDefault(); 
+        $('.AI-on').toggleClass('hidden');
+        $('.AI-off').toggleClass('hidden');
+        if ($('.AI-on').hasClass('hidden')) {
+          $('.AIToggleButton').text('AI加工画像を表示');
+        } else {
+          $('.AIToggleButton').text('AI加工画像を非表示');
+        }
+    });
+});

@@ -502,3 +502,64 @@ div.tweetbutton {
 div.tweetbutton_sp {
     display: none;
 }
+
+.hidden {
+    display: none;
+}
+
+/*
+.inlineContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.AIToggleButton {
+  color: #fff;
+  font-size: 1.0em;
+  padding: 6px 1em 4px;
+  border-radius: 4px 4px 4px 4px;
+  border: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+  transition: all .5s;
+}
+.AIToggleButton a:hover {
+  border: 1px solid rgb(255, 255, 255);
+}
+  */
+
+.AIToggleButton {
+  -webkit-transition: bottom 0.4s linear;
+  transition: bottom 0.4s linear;
+  position: absolute;
+  left: 0;
+}
+
+a.AIToggleButton {
+  display: inline-block;
+  color: #fff;
+  background: linear-gradient(to right, 
+  rgba(230, 0, 0, 0.7), 
+  rgba(243, 152, 0, 0.7), 
+  rgba(255, 241, 0, 0.7), 
+  rgba(0, 153, 68, 0.7), 
+  rgba(0, 104, 183, 0.7), 
+  rgba(29, 32, 136, 0.7), 
+  rgba(146, 7, 131, 0.7)
+  );
+  font-size: 1.0em;
+  padding: 6px 1em 4px;
+  /*border-radius: 4px 4px 4px 4px;*/
+  border-radius: 0 0 4px 0;
+  /*background: rgba(0, 0, 0, 0.5);*/
+  text-decoration: none;
+  transition: all .5s;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+a.AIToggleButton:hover {
+  background: linear-gradient(to right,#e60000,#f39800,#fff100,#009944,#0068b7,#1d2088,#920783);
+  transition: all .5s;
+  border: 1px solid rgba(255, 255, 255, 0.548);
+}
