@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サイト移転のお知らせ</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: #a0b4cc;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>サイト移転のお知らせ</h1>
+    <p>確認ダイアログをご確認ください</p>
+  </div>
+
+  <script>
+    (function(){
+      var result = window.confirm('弊サイトは移転しております。移動しますか？');
+      if( result ) {
+        window.location.href = 'https://railway-townscape-archive.pages.dev';
+      }
+    }());
+  </script>
+</body>
+</html>
